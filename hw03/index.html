@@ -220,7 +220,7 @@
         
         <tr>
           <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked="checked"></td>
-          <td id='m5'>4</td>
+          <td id='m4'>4</td>
           <td>Strong baseline - 建立台灣地圖各縣市人數的 Choropleth </td>
         </tr>
 
@@ -274,6 +274,10 @@
 
     if (d3.select("#myCheckbox3").property("checked")){
       score += parseInt(d3.select('#m3').html());   
+    }
+
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());
     }
 
     d3.select("#myTotal").html(score);    
