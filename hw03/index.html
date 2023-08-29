@@ -201,25 +201,25 @@
         </tr>
         <tr>
           <td rowspan="0" id="myTotal"></td>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked="checked"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" ></td>
           <td id='m1'>1</td>
           <td>Simple baseline-1 - 參觀時間總計(回撥組長的參訪路徑)</td>
         </tr>
 
          <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked="checked"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" ></td>
           <td id='m2'>2</td>
           <td>Simple baseline-2 - 計算移動距離/卡路里</td>
         </tr>
         
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked="checked"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" ></td>
           <td id='m3'>3</td>
           <td>Medium baseline - 美術館樓層平面圖分區(造訪頻率)</td>
         </tr>
         
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked="checked"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" ></td>
           <td id='m4'>4</td>
           <td>Strong baseline - 建立台灣地圖各縣市人數的 Choropleth </td>
         </tr>
@@ -254,9 +254,6 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
-  d3.select("#myCheckbox6").on("change",update);
-  d3.select("#myCheckbox7").on("change",update);
 
   update();
   
