@@ -5,9 +5,9 @@ function toggleImage(floorId) {
     const img = floorElement.querySelector('img');
   
     if (checkbox.checked) {
-      img.src = `../svg/new${floorId.slice(-1)}F.svg`;  // Change to new image
+      img.src = `../simple/svg/new${floorId.slice(-1)}F.svg`;  // Change to new image
     } else {
-      img.src = `../svg/no${floorId.slice(-1)}F.svg`;  // Change to initial image
+      img.src = `../simple/svg/no${floorId.slice(-1)}F.svg`;  // Change to initial image
     }
   }
   
