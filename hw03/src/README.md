@@ -1,13 +1,10 @@
-# 將專案發佈到Github Pages
-### 1. Install the `gh-pages` npm package
-1. Install the [`gh-pages`](https://github.com/tschaub/gh-pages) npm package and designate it as a [development dependency](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file):
-```shell
-//npm
-npm install --save gh-pages
+# GitHub Pages 設置
+- 過 GitHub 建立靜態網站稱為 GitHub Pages
+- 我們在 Settings 頁面找尋 GitHub Pages 標題如下圖所示
+- 找到後點擊 下拉式按鈕 選擇 master branch
 
-//Alternatively you may use yarn
-yarn add gh-pages
-```
+
+
 - 創建 package.json，並添加homepage、scripts指令
 ~~~sh
 //package.json
