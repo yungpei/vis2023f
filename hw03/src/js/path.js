@@ -1,5 +1,5 @@
 const icon = document.getElementById('icon');
-const jsonUrl = '../simple/NTNU-Art_1F.json'; 
+const jsonUrl = '../NTNU-Art_1F.json'; 
 
 function calculatePosition(x, y) {
   const minX = 10.45;
