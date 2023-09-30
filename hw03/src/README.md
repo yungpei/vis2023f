@@ -1,4 +1,3 @@
-# GitHub Pages 設置
-- 過 GitHub 建立靜態網站稱為 GitHub Pages
-- 我們在 Settings 頁面找尋 GitHub Pages 標題如下圖所示
-- 找到後點擊 下拉式按鈕 選擇 master branch
+# GitHub Pages 404
+- 如果你的 GitHub Pages 出現以下問題
+- ![GITHUB]([https://dl.dropboxusercontent.com/u/2226591/GIT/dojocat.jpg](https://i.imgur.com/p9VPvqx.png)https://i.imgur.com/p9VPvqx.png "GitHub Pages 404")
