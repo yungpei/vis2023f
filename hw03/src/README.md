@@ -1,19 +1,8 @@
 # GitHub Pages 404
 - 如果你的 GitHub Pages 出現以下問題
   ![](https://i.imgur.com/p9VPvqx.png "GitHub Pages 404")
-* 如果資料夾結構是類似於以下的圖示
 
-![](https://i.imgur.com/g93adzd.png)
-
-這樣 GitHub Pages 會抓不到 **index.html**
-你必須手動更改網址讓它指向 **index.html**
-
-範例如下
-```
-https://username.github.io/儲存庫名稱/work1/index.html/
-```
-
-* 如果資料夾結構是類似於以下的圖示
+* 如果資料夾結構是類似於以下的圖示：
 
 ![](https://i.imgur.com/HJrXrLj.png)
 
