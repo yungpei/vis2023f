@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>蘋果成績表</title>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <style>
+    @font-face {
+        font-family:'CircleFont'; /* src: url(https://circle472.github.io/ct2022s/hw04/CircleFont.ttf);  https://github.com/circle472/ct2022s/ */
+        src: url(CircleFont_v2.woff2); /* https://cloudconvert.com/ttf-to-woff2 */
+    }
+    body {
+        background-color: rgba(255, 128, 255, 0.1);
+        font-family: 'CircleFont', 'Noto Serif JP', serif;
+    }
+    h3 {
+        background-color: rgba(255, 255, 0, 0.1);
+        color: white; 
+        text-shadow: 0 0 6px #FF0000, 0 0 6px #000000;
+        font-family: 'CircleFont', 'Noto Serif JP', serif;
+        font-size: 18pt;
+        border: solid 1px black;
+        width: 90%;
+        margin: 5px auto;
+        padding: 10px;
+        text-align: center;
+    }
+    div {
+        background-color: rgba(255, 255, 0, 0.1);
+        font-family: 'CircleFont', 'Noto Serif JP', serif;
+        font-size: 16pt;
+        border: solid 1px black;
+        width: 90%;
+        margin: 5px auto;
+        padding: 10px;
+        text-align: center;
+    }
+    table {
+        border-collapse: collapse;
+        border: 2px black solid;
+        font-family: 'CircleFont', 'Noto Serif JP', serif;
+        font-size: 16pt;
+        /* font: 16px sans-serif; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    th, td {
+        border: 1px black solid;
+        padding: 5px;
+        background-color: rgba(128, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <script>
+    d3.csv('C:\Users\cg\Documents\GitHub\vis2023f\hw01\src-easy\data.csv').then(data => {
+      const columns = ['序號', '班級', '學號', '中文姓名', 'GitHub帳號', '作業一', '作業二', '作業三', '作業四', '作業五', '作業六', '作業七', '作業八', '作業九', '作業十'];
+
+      const table = d3.select('body')
+        .append('table');
+
+      table.append('thead')
+        .append('tr')
+        .selectAll('th')
+        .data(columns)
+        .enter()
+        .append('th')
+        .text(d => d);
+
+      const tbody = table.append('tbody');
+
+      const rows = tbody.selectAll('tr')
+        .data(data)
+        .enter()
+        .append('tr');
+
+      const cells = rows.selectAll('td')
+        .data(d => columns.map(column => d[column]))
+        .enter()
+        .append('td')
+        .text(d => d);
+    });
+  </script>
+</body>
+</html>
