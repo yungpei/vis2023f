@@ -40,15 +40,27 @@
   </table>
 
   <script>
-    function generateRandomStudentId() {
-      const prefixes = ['111', '112'];
-      const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
-      const middleOptions = ['590', '598', 'C52', 'C53', 'C71'];
-      const randomMiddle = middleOptions[Math.floor(Math.random() * middleOptions.length)];
-      const randomLastThree = String(Math.floor(Math.random() * 999)).padStart(3, '0');
-      return randomPrefix + randomMiddle + randomLastThree;
+    function GenerateClassAndId(classIndex) {
+      const classes = ["資工", "資工碩", "電資AI", "電資資安", "創新AI"];
+      const departmentCode = ["590", "598", "C52", "C53", "C71"];
+      const year = [111, 112];
+      const grade = ["三", "四"];
+      /*const prefixes = ['111', '112'];
+      const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)]; // 隨機選擇前三碼  
+      const randomMiddle = departmentCode[classIndex]; // 隨機選擇中間三碼
+      const randomLastThree = String(Math.floor(Math.random() * 999)).padStart(3, '0'); // 隨機選擇後三碼
+      const studentID = randomPrefix + randomMiddle + randomLastThree; // 組合學號
+      */
+      // 隨機選擇班級
+      let temp = Math.random() < 0.5 ? 0 : 1;
+      const theClass = classes[classIndex] + grade[temp];
+      // 組合學號
+      let studentID = year[temp] + departmentCode[classIndex] + Math.floor(Math.random() * (999 - 1) + 1).toString().padStart(3, "0");
+
+      return [theClass, studentID];
     }
 
+    // 中文姓名
     // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00)) +
     // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00)) +
     // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00));
@@ -63,6 +75,7 @@
       return randomFirstName + randomLastName1 + randomLastName2;
     }
 
+    // GitHub帳號
     function generateRandomGitHubAccount() {
       const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
       let result = '';
@@ -72,21 +85,22 @@
       return result;
     }
 
+    // 生成十次作業的成績
     function generateRandomGrade() {
-      return Math.floor(Math.random() * 11); // Random grade between 0 and 10
+      return Math.floor(Math.random() * 11); // 隨機生成 0 到 10 的成績
     }
 
     function generateDummyData(numStudents) {
       const data = [];
 
       for (let i = 1; i <= numStudents; i++) {
-        const studentId = generateRandomStudentId();
+        const [className, studentId] = GenerateClassAndId(Math.floor(Math.random() * 5));
         const studentName = getRandomChineseName();
-        const department = ['資工四', '資工所', '電資AI', '電資資安', '創新AI'][Math.floor(Math.random() * 5)];
+        //const classes = ['資工四', '資工所', '電資AI', '電資資安', '創新AI'][Math.floor(Math.random() * 5)];
         const githubAccount = generateRandomGitHubAccount();
-        const grades = Array.from({ length: 10 }, generateRandomGrade); // Generate 10 random grades for homework
+        const grades = Array.from({ length: 10 }, generateRandomGrade);
 
-        data.push([i, department, studentId, studentName, githubAccount, ...grades]);
+        data.push([i, className, studentId, studentName, githubAccount, ...grades]);
       }
 
       return data;
@@ -100,8 +114,9 @@
       return 'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent);
     }
 
+    // Generate dummy data for 120 students
     function downloadCSV() {
-      const dummyData = generateDummyData(120); // Generate dummy data for 120 students
+      const dummyData = generateDummyData(120);
       const csvContent = convertToCSV(dummyData);
 
       const link = document.createElement('a');
