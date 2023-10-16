@@ -40,33 +40,13 @@
   </table>
 
   <script>
-    /*function generateRandomStudentId() {
+    function generateRandomStudentId() {
       const prefixes = ['111', '112'];
       const randomPrefix = prefixes[Math.floor(Math.random() * prefixes.length)];
       const middleOptions = ['590', '598', 'C52', 'C53', 'C71'];
       const randomMiddle = middleOptions[Math.floor(Math.random() * middleOptions.length)];
       const randomLastThree = String(Math.floor(Math.random() * 999)).padStart(3, '0');
       return randomPrefix + randomMiddle + randomLastThree;
-    }*/
-
-    function GenerateClassAndId(classIndex) {
-      const classes = ["資工", "資工碩", "電資AI", "電資資安", "創新AI"];
-      const departmentCode = ["590", "598", "C52", "C53", "C71"];
-
-      const year = [111, 112];
-      const grade = ["三", "四"];
-
-      let temp = Math.random() < 0.5 ? 0 : 1;
-
-      let theClass = classes[classIndex] + grade[temp];
-      let studentID =
-        year[temp] +
-        departmentCode[classIndex] +
-        Math.floor(Math.random() * (999 - 1) + 1)
-          .toString()
-          .padStart(3, "0");
-
-      return [theClass, studentID];
     }
 
     // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00)) +
@@ -100,9 +80,9 @@
       const data = [];
 
       for (let i = 1; i <= numStudents; i++) {
-        const studentId = GenerateClassAndId(classIndex);
+        const studentId = generateRandomStudentId();
         const studentName = getRandomChineseName();
-        //const department = ['資工四', '資工所', '電資AI', '電資資安', '創新AI'][Math.floor(Math.random() * 5)];
+        const department = ['資工四', '資工所', '電資AI', '電資資安', '創新AI'][Math.floor(Math.random() * 5)];
         const githubAccount = generateRandomGitHubAccount();
         const grades = Array.from({ length: 10 }, generateRandomGrade); // Generate 10 random grades for homework
 

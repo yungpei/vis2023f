@@ -93,12 +93,9 @@ function PushDataToRow(data) {
 function GenerateClassAndId(classIndex) {
   const classes = ["資工", "資工碩", "電資AI", "電資資安", "創新AI"];
   const departmentCode = ["590", "598", "C52", "C53", "C71"];
-
   const year = [111, 112];
   const grade = ["三", "四"];
-
   let temp = Math.random() < 0.5 ? 0 : 1;
-
   let theClass = classes[classIndex] + grade[temp];
   let studentID =
     year[temp] +
