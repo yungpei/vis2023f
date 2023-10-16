@@ -49,12 +49,20 @@
       return randomPrefix + randomMiddle + randomLastThree;
     }
 
+    // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00)) +
+    // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00)) +
+    // String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00));
+    // 這段程式碼使用 String.fromCharCode 產生隨機的中文字符，範圍在常見中文字符的 Unicode 區間。0x4e00 是中文第一個字符（"一"），0x51ff 是最後一個字符的 Unicode 編碼。程式碼會從這個範圍內隨機選取一個字符，並重複三次以生成三個字符的中文名字。
+
+
     function getRandomChineseName() {
-      const firstNameList = ['張', '王', '李', '陳', '劉', '楊', '黃', '趙', '周', '吳', '鄭', '蔡', '林', '鍾', '徐', '許', '邱', '馮', '潘', '彭'];
-      const lastNameList = ['小', '明', '華', '明', '美', '欣', '俊', '雄', '怡', '蓉', '冠', '宇', '麗', '敏', '子', '詩', '玉', '志', '婷', '宜'];
+      const firstNameList = ['陳','林','黃','張','李','王','吳','劉','蔡','楊','許','鄭','謝','洪','郭','邱','曾','廖','賴','徐','周','葉','蘇','莊','呂','江','何','蕭','羅','高','潘','簡','朱','鍾','游','彭','詹','胡','施','沈'];
+      const lastNameList1 = String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00));
+      const lastNameList2 = String.fromCharCode(Math.floor(Math.random() * 0x51ff + 0x4e00));
       const randomFirstName = firstNameList[Math.floor(Math.random() * firstNameList.length)];
-      const randomLastName = lastNameList[Math.floor(Math.random() * lastNameList.length)];
-      return randomFirstName + randomLastName;
+      const randomLastName1 = lastNameList1[Math.floor(Math.random() * lastNameList1.length)];
+      const randomLastName2 = lastNameList2[Math.floor(Math.random() * lastNameList2.length)];
+      return randomFirstName + randomLastName1 + randomLastName2;
     }
 
     function generateRandomGitHubAccount() {
@@ -85,6 +93,9 @@
 
       return data;
     }
+
+    // How to export HTML table to CSV using JavaScript ?
+    // https://www.geeksforgeeks.org/how-to-export-html-table-to-csv-using-javascript/
 
     function convertToCSV(data) {
       const csvContent = data.map(row => row.join(',')).join('\n');
