@@ -114,76 +114,26 @@
     <div id="div2"></div>
   <script type="text/javascript" charset="utf-8">
     // D3 v7 版本
-const container1 = d3.select("#div1")
-  .append("table")
-  .append("tr")
-  .selectAll("td")
-  .data([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
-  .enter()
-  .append("td")
-  .text((d, i) => {
-    if (i <= 10 || isNaN(d)) {
-      return d;
-    }
-  })
-  .attr("class", (d, i) => {
-    if (d == 10) return "excellent-kid";
-    else if (d >= 7) return "good-kid";
-    else if (d >= 2) return "fair-kid";
-    else return "poor-kid";
-  })
-  .append("img")
-  .attr("src", (d, i) => {
-    if (d == 10) return "../svg/52.svg";
-    else if (d == 9) return "../svg/51.svg";
-    else if (d == 8) return "../svg/42.svg";
-    else if (d == 7) return "../svg/41.svg";
-    else if (d == 6) return "../svg/32.svg";
-    else if (d == 5) return "../svg/31.svg";
-    else if (d == 4) return "../svg/22.svg";
-    else if (d == 3) return "../svg/21.svg";
-    else if (d == 2) return "../svg/12.svg";
-    else if (d == 1) return "../svg/11.svg";
-    else if (d == 0) return "../svg/01.svg";
-    else return "../svg/00.svg";
-  })
-  .attr("x", "0")
-  .attr("y", "0")
-  .attr("width", (d, i) => (i + 1) * 60)
-  .attr("height", (d, i) => (i + 1) * 60);
-
-d3.text("../data.csv")
-  .then((data) => {
-    const parsedCSV = d3.csvParseRows(data);
-
-    const container2 = d3.select("#div2")
-      .append("table")
-      .selectAll("tr")
-      .data(parsedCSV)
-      .enter()
-      .append("tr")
-      .selectAll("td")
-      .data((d) => d)
-      .enter()
-      .append("td")
-      .html((d, i) => {
-        if (i == 4 && d != 'GitHub 帳號') {
-          const timestamp = Date.now();
-          const imageSource = 'https://picsum.photos/200/300/?random&' + timestamp;
-          return '<img src="' + imageSource + '">' + '<hr><a href="https://github.com/' + d + '/vis2023f/" target="_blank">' + d + '</a>';
-        } else if (i == 0 || i == 2 || isNaN(d)) {
-          return d;
+    const container1 = d3.select("#div1")
+    .append("table")
+    .append("tr")
+    .selectAll("td")
+    .data([10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
+    .enter()
+    .append("td")
+    .text((d, i) => {
+        if (i <= 10 || isNaN(d)) {
+            return d;
         }
-      })
-      .filter((d, i) => (i > 2 && !isNaN(d) && d != ""))
-      .attr("class", (d) => {
+    })
+    .attr("class", (d, i) => {
         if (d == 10) return "excellent-kid";
         else if (d >= 7) return "good-kid";
         else if (d >= 2) return "fair-kid";
         else return "poor-kid";
-      })
-      .append("img")
-      .attr("src", (d) => {
+    })
+    .append("img")
+    .attr("src", (d, i) => {
         if (d == 10) return "../svg/52.svg";
         else if (d == 9) return "../svg/51.svg";
         else if (d == 8) return "../svg/42.svg";
@@ -196,12 +146,61 @@ d3.text("../data.csv")
         else if (d == 1) return "../svg/11.svg";
         else if (d == 0) return "../svg/01.svg";
         else return "../svg/00.svg";
-      })
-      .attr("width", 50)
-      .attr("height", 50);
-  })
-  .catch((error) => console.error("Error loading the data:", error));
+    })
+    .attr("x", "0")
+    .attr("y", "0")
+    .attr("width", (d, i) => (i + 1) * 60)
+    .attr("height", (d, i) => (i + 1) * 60);
 
+    d3.text("../data.csv")
+    .then((data) => {   //d3.text()返回的是 Promise，使用 .then()處理回傳的資料。
+        const parsedCSV = d3.csvParseRows(data);   //另外，選擇器的使用也有些微差異。
+
+        const container2 = d3.select("#div2")
+        .append("table")
+        .selectAll("tr")
+        .data(parsedCSV)
+        .enter()
+        .append("tr")
+        .selectAll("td")
+        .data((d) => d)
+        .enter()
+        .append("td")
+        .html((d, i) => {
+            if (i == 4 && d != 'GitHub 帳號') {
+                const timestamp = Date.now();
+                const imageSource = 'https://picsum.photos/200/300/?random&' + timestamp;
+                return '<img src="' + imageSource + '">' + '<hr><a href="https://github.com/' + d + '/vis2023f/" target="_blank">' + d + '</a>';
+            } else if (i == 0 || i == 2 || isNaN(d)) {
+                return d;
+            }
+        })
+        .filter((d, i) => (i > 2 && !isNaN(d) && d != ""))
+        .attr("class", (d) => {
+            if (d == 10) return "excellent-kid";
+            else if (d >= 7) return "good-kid";
+            else if (d >= 2) return "fair-kid";
+            else return "poor-kid";
+        })
+        .append("img")
+        .attr("src", (d) => {
+            if (d == 10) return "../svg/52.svg";
+            else if (d == 9) return "../svg/51.svg";
+            else if (d == 8) return "../svg/42.svg";
+            else if (d == 7) return "../svg/41.svg";
+            else if (d == 6) return "../svg/32.svg";
+            else if (d == 5) return "../svg/31.svg";
+            else if (d == 4) return "../svg/22.svg";
+            else if (d == 3) return "../svg/21.svg";
+            else if (d == 2) return "../svg/12.svg";
+            else if (d == 1) return "../svg/11.svg";
+            else if (d == 0) return "../svg/01.svg";
+            else return "../svg/00.svg";
+        })
+        .attr("width", 50)
+        .attr("height", 50);
+    })
+    .catch((error) => console.error("Error loading the data:", error));
   </script>
 </body>
 </html>
