@@ -71,7 +71,7 @@ svg.selectAll('rect')
   .attr('height', function(d) { return d; })
   .style('fill', 'steelblue');
 ```
-
+![D3 v3](image-1.png)
 ```js
 // 使用 D3 v7
 const data = [10, 20, 30, 40, 50];
@@ -89,3 +89,4 @@ svg.selectAll('rect')
   .attr('height', d => d)
   .style('fill', 'steelblue');
 ```
+![D3 v7](image-2.png)
