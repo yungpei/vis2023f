@@ -53,3 +53,39 @@ function getRandomIntInclusive(min, max) {
 4. 函數的寫法：
 - D3 v7 中，函數的寫法可能會使用 ES6+ 的語法，如箭頭函數。
 - D3 v3 中，函數的寫法可能更傳統，不使用 ES6+ 的語法。
+> 範例：建一個簡單的長條圖，以比較兩者之間的差異。
+```js
+// 使用 D3 v3
+var data = [10, 20, 30, 40, 50];
+
+var svg = d3.select('body').append('svg')
+  .attr('width', 400)
+  .attr('height', 200);
+
+svg.selectAll('rect')
+  .data(data)
+  .enter().append('rect')
+  .attr('x', function(d, i) { return i * 50; })
+  .attr('y', function(d) { return 200 - d; })
+  .attr('width', 40)
+  .attr('height', function(d) { return d; })
+  .style('fill', 'steelblue');
+```
+
+```js
+// 使用 D3 v7
+const data = [10, 20, 30, 40, 50];
+
+const svg = d3.select('body').append('svg')
+  .attr('width', 400)
+  .attr('height', 200);
+
+svg.selectAll('rect')
+  .data(data)
+  .enter().append('rect')
+  .attr('x', (d, i) => i * 50)
+  .attr('y', d => 200 - d)
+  .attr('width', 40)
+  .attr('height', d => d)
+  .style('fill', 'steelblue');
+```
