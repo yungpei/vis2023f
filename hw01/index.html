@@ -215,7 +215,7 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <a href="https://github.com/yungpei/vis2023f/hw01/src-easy/">https://github.com/<span style="color:red;">yungpei</span>/vis2023f/hw01/src-easy/</a> 記得將 tjhsieh 改為你的帳號
+      <a href="https://github.com/yungpei/vis2023f/hw01/src-easy/index.html">https://github.com/<span style="color:red;">yungpei</span>/vis2023f/hw01/src-easy/</a> 記得將 tjhsieh 改為你的帳號
       <hr>
       <a href="https://github.com/yungpei/vis2023f/hw01/src-medium-v3/index.html">https://github.com/<span style="color:red;">yungpei</span>/vis2023f/hw01/src-medium-v3/</a> 記得將 tjhsieh 改為你的帳號
       <hr>
@@ -235,7 +235,8 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。心得報告 100 字。
+      在此次作業當中，產生一個dummy csv，需要知道Random.math()的應用，才可以隨機產生我們需要的資料；而我們可以透過 medium baseline 的兩個作業
+      進而得知 D3 的 v3 跟 v7 的差異，雖然顯著的差異並不大，不過在使用 v7 時可以簡化一些我們使用的程式碼，以及在選擇器上的使用更為便利。 
     </div>
   </div>
 
@@ -355,10 +356,6 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
-  d3.select("#myCheckbox6").on("change",update);
-  d3.select("#myCheckbox7").on("change",update);
-
   update();
   
   function update(){
@@ -375,6 +372,10 @@
 
     if (d3.select("#myCheckbox3").property("checked")){
       score += parseInt(d3.select('#m3').html());   
+    }
+
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());
     }
 
     d3.select("#myTotal").html(score);    
