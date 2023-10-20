@@ -3,7 +3,7 @@ md`# Data`
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("data.json").json()
+FileAttachment("../data.json").json()
 )}
 
 export default function define(runtime, observer) {
