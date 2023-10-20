@@ -1,4 +1,4 @@
-import define1 from "./a0ddc2902ee948e3@7.js";
+import define1 from "./a0ddc2902ee948e3@7";
 
 function _1(md){return(
 md`# HW02 Simple baseline (4pt)`
