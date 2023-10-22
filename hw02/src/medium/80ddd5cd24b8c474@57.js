@@ -7,7 +7,7 @@ md`### 以 bar chart 呈現每個年份出生的人數 (2pt)	`
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("data.json").json()
+FileAttachment("../../data.json").json()
 )}
 
 function _4(md){return(
