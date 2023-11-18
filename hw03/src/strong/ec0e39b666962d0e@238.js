@@ -1,7 +1,7 @@
 import define1 from "./e93997d5089d7165@2303.js";
 
 function _1(md){return(
-md`# HW3 Strong baseline (4pt)`
+md`# HW03 Strong baseline (4pt)`
 )}
 
 function _colorset(){return(
@@ -151,14 +151,10 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,data){r
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("people_data@3.csv").csv()
+FileAttachment("UserData.json").json()
 )}
 
-function _12(__query,data,invalidation){return(
-__query(data,{from:{table:"data"},sort:[],slice:{to:null,from:null},filter:[],select:{columns:null}},invalidation,"data")
-)}
-
-function _13(md){return(
+function _12(md){return(
 md`## Requirement`
 )}
 
@@ -182,7 +178,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["people_data@3.csv", {url: new URL("./files/3f2f68349c1bdf6a838b37b8305a2842e5e62ec83eef03c0f47a8876d6571f045c5bcb5a2c3d38ab3dcdcdf3834b77ee9cb413207a5beec8a634cac21814e488.csv", import.meta.url), mimeType: "text/csv", toString}]
+    ["UserData.json", {url: new URL("../UserData.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
@@ -199,8 +195,7 @@ export default function define(runtime, observer) {
   main.variable(observer("taiwan")).define("taiwan", ["taiwanMap"], _taiwan);
   main.variable(observer("taiwanMap")).define("taiwanMap", ["d3","topojson","tw","DOM","bgColor","strokeColor","strokeOpacity","data"], _taiwanMap);
   main.variable(observer("data")).define("data", ["FileAttachment"], _data);
-  main.variable(observer()).define(["__query","data","invalidation"], _12);
-  main.variable(observer()).define(["md"], _13);
+  main.variable(observer()).define(["md"], _12);
   const child1 = runtime.module(define1);
   main.import("select", child1);
   main.variable(observer("tw")).define("tw", ["d3"], _tw);
