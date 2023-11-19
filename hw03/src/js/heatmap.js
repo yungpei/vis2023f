@@ -1,7 +1,7 @@
-const jsonUrl = '../json/userLocationData.json';
+const jsonUrl02 = '../json/userLocationData.json';
 
 // Step 1: Fetch JSON data
-fetch(jsonUrl)
+fetch(jsonUrl02)
   .then(response => response.json())
   .then(jsonData => {
     // Step 2: Group data by floor
@@ -58,4 +58,4 @@ fetch(jsonUrl)
       });
     }
   })
-  .catch(error => console.error('Error fetching or parsing JSON:', error));
+  .catch(error => console.error('Error fetching JSON:', error));
