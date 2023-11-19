@@ -27,7 +27,7 @@ function updateInfo(time, floor, distance, calorie) {
   const speed = distance / time;
 
   timeInfo.textContent = `Time: ${time} seconds`;
-  distanceInfo.textContent = `Distance: ${distance} meters,`;
+  distanceInfo.textContent = `Distance: ${distance} meters`;
   calorieInfo.textContent = `Calories: ${calorie} calories`;
 
   // 這裡可以加上其他相關邏輯
