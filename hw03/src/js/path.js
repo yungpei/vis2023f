@@ -37,7 +37,9 @@ loadjson();
 setInterval(loadjson, 1000);
 */
 const icon = document.getElementById('icon');
-const jsonUrl = '../json/userLocationData.json'; 
+const jsonUrl = '../json/userLocationData.json';
+let currentIndex = 0;
+let currentFloor = ''; // 新增 currentFloor 變數
 
 function calculatePosition(x, y) {
   const minX = 10.45;
@@ -52,30 +54,38 @@ function calculatePosition(x, y) {
 }
 
 function updateIconPosition(x, y) {
-  console.log(x,y);
+  console.log(x, y);
   const { x: iconX, y: iconY } = calculatePosition(x, y);
   icon.style.left = `${iconX}%`;
   icon.style.top = `${iconY}%`;
 }
-let currentIndex = 0;
-let jsonData = null;
+
 function loadjson() {
   fetch(jsonUrl)
     .then(response => response.json())
     .then(data => {
-      jsonData = data;
-      if (currentIndex < jsonData.length) {
-        const point = jsonData[currentIndex];
+      if (data && data.length > 0) {
+        const point = data[currentIndex];
+
+        if (point.Floor !== currentFloor) {
+          // 換樓層時的處理，這裡可以添加你的樓層切換相關邏輯
+          console.log(`Switched to Floor ${point.Floor}`);
+          currentFloor = point.Floor;
+        }
+
         updateIconPosition(point.X, point.Y);
-        currentIndex++; 
-      } else {
-        currentIndex = 0;
+        currentIndex++;
+
+        // 如果資料到達末尾，重新從頭開始
+        if (currentIndex >= data.length) {
+          currentIndex = 0;
+        }
       }
     })
-    .catch(error => console.error('Error fetching JSON:', error));
+    .catch(error => console.error('Error fetching or parsing JSON:', error));
 }
 
-// 初始加載icon位置
+// 初始加載 icon 位置
 loadjson();
 
 // 每秒更新一次位置
