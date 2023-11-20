@@ -39,7 +39,7 @@ setInterval(loadjson, 1000);
 const icon = document.getElementById('icon');
 const jsonUrl = '../json/userLocationData.json';
 let currentIndex = 0;
-let currentFloor = ''; // 新增 currentFloor 變數
+let currentFloor = '1F'; // 新增 currentFloor 變數
 
 function calculatePosition(x, y) {
   const minX = 10.45;
