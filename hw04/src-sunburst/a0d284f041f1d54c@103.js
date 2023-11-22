@@ -322,6 +322,11 @@ md`### 結論：`
 )}
 
 function _7(md){return(
+md`1. 從Sunburst中，我們可以看出有38.8%來自工作室的人員填寫表單，且其中12.1%使用減少包裝材及文宣印製來減少碳排放。
+2. 其中令我感到意外的是，有7.99%來自美術館，其中有1.75%是使用工作場所、活動展場的節約能源來減少碳排放，畢竟美術館十分需要冷氣及燈光的使用，但能做到節約能源也是滿厲害的！`
+)}
+
+function _8(md){return(
 md`### Requirements`
 )}
 
@@ -483,7 +488,7 @@ function breadcrumbPoints(d, i) {
 }
 )}
 
-function _22(htl){return(
+function _23(htl){return(
 htl.html`<style>
 .tooltip {
   padding: 8px 12px;
@@ -515,6 +520,7 @@ export default function define(runtime, observer) {
   main.variable(observer("sunburst")).define("sunburst", ["Generators", "viewof sunburst"], (G, _) => G.input(_));
   main.variable(observer()).define(["md"], _6);
   main.variable(observer()).define(["md"], _7);
+  main.variable(observer()).define(["md"], _8);
   main.variable(observer("artist")).define("artist", ["FileAttachment"], _artist);
   main.variable(observer("innerCircleQuestion")).define("innerCircleQuestion", ["artist"], _innerCircleQuestion);
   main.variable(observer("outerCircleQuestion")).define("outerCircleQuestion", ["artist"], _outerCircleQuestion);
@@ -529,6 +535,6 @@ export default function define(runtime, observer) {
   main.variable(observer("breadcrumbWidth")).define("breadcrumbWidth", _breadcrumbWidth);
   main.variable(observer("breadcrumbHeight")).define("breadcrumbHeight", _breadcrumbHeight);
   main.variable(observer("breadcrumbPoints")).define("breadcrumbPoints", ["breadcrumbWidth","breadcrumbHeight"], _breadcrumbPoints);
-  main.variable(observer()).define(["htl"], _22);
+  main.variable(observer()).define(["htl"], _23);
   return main;
 }
