@@ -1,0 +1,14 @@
+{
+  "name": "25d9b0e558aff8e4",
+  "main": "25d9b0e558aff8e4@47.js",
+  "version": "47.0.0",
+  "homepage": "https://observablehq.com/d/25d9b0e558aff8e4",
+  "author": {
+    "name": "吳泳霈's Workspace",
+    "url": "https://observablehq.com/@yung2-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
