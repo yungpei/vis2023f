@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body>
-    <!--<div id="heatmapContainer" style="width: 100%; height: 500px;"></div> 
-    <div id="icon"></div> -->
+    <!--<div id="heatmapContainer" style="width: 100%; height: 500px;"></div>  -->
+    <div id="icon"></div>
     <div class="grid">
         <div id="floor1" class="grid-item">
             <p>師大美術館一樓展廳</p>
@@ -19,7 +19,7 @@
                   <input type="checkbox" class="show-image"> Show Image
                 </label>
             </div>
-            <div class="heatmap-canvas"></div> <!-- 新增一個用來繪製熱力圖的容器 -->
+            
         </div>
         <div id="floor2" class="grid-item">
             <p>師大美術館二樓展廳</p>
@@ -29,7 +29,7 @@
                   <input type="checkbox" class="show-image"> Show Image
                 </label>
             </div>
-            <div class="heatmap-canvas"></div> <!-- 新增一個用來繪製熱力圖的容器 -->
+            
         </div>
         <div id="floor3" class="grid-item">
             <p>師大美術館三樓展廳</p>
@@ -39,7 +39,7 @@
                   <input type="checkbox" class="show-image"> Show Image
                 </label>
             </div>
-            <div class="heatmap-canvas"></div> <!-- 新增一個用來繪製熱力圖的容器 -->
+            
         </div>
         <div id="floor4" class="grid-item">
             <p>師大美術館四樓展廳</p>
@@ -49,12 +49,14 @@
                   <input type="checkbox" class="show-image"> Show Image
                 </label>
             </div>
-            <div class="heatmap-canvas"></div> <!-- 新增一個用來繪製熱力圖的容器 -->
+            
         </div>
       </div>
+      <div id="trace-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
     
       <!--<script src="../js/path.js"></script> -->
       <script src="../js/script.js"></script>
-      <script src="../js/heatmap.js"></script>
+      <script src="../js/trace.js"></script>
+      
 </body>
 </html>

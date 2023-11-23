@@ -36,3 +36,11 @@ body {
     background-size: 25px 25px;
     position: absolute;
   }
+
+  .trace-point {
+    width: 5px;
+    height: 5px;
+    background-color: blue; /* 可以根據需要更改顏色 */
+    border-radius: 50%;
+    position: absolute;
+}
