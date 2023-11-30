@@ -5,7 +5,7 @@ md`# HW03 Medium baseline (4pt)`
 )}
 
 function _data(FileAttachment){return(
-FileAttachment("UserData.json").json()
+FileAttachment("UserData@1.json").json()
 )}
 
 function _bgColor(Inputs){return(
@@ -243,7 +243,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["UserData.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
+    ["UserData@1.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
