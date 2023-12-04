@@ -13,7 +13,7 @@ Inputs.color({ label: "background color", value: "#dde6ee" })
 )}
 
 function _strokeColor(Inputs){return(
-Inputs.color({ label: "stroke color", value: "#FFFFFF" })
+Inputs.color({ label: "stroke color", value: "#000000" })
 )}
 
 function _strokeOpacity(Inputs){return(
@@ -63,21 +63,34 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
     .attr("stroke-width", 0.5)
     .attr("opacity", strokeOpacity)
     .attr("d", path);
+
+  const maxValue = 42;
+  const thresholds = d3.range(0, maxValue + 1);
+  const colorRange = thresholds.map(value => d3.interpolateBlues(value / maxValue));
+  const thresholdScale = d3.scaleThreshold().domain(thresholds).range(colorRange);
   
   details
     .enter()
     .append("path")
     .attr("fill", (d) => {
-      minidata.find(
+      const foundData = minidata.find(
         (t) =>
-          t.value === d.properties.COUNTYNAME &&
-          t["value"].replace("　", "") === d.properties.COUNTYNAME
+          t.value === d.properties.COUNTYNAME ||
+          t.value.replace("臺", "台") === d.properties.COUNTYNAME
       );
-      //return thresholdScale(t.value)(+t.count);
+      return foundData ? thresholdScale(foundData.count) : thresholdScale(0);
     })
+    .attr("stroke", "white")
     .attr("d", path)
     .append("title")
-    .text(d => d.properties.COUNTYNAME);
+    .text((d) => {
+      const foundData = minidata.find(
+        (t) =>
+          t.value === d.properties.COUNTYNAME ||
+          t.value.replace("臺", "台") === d.properties.COUNTYNAME
+      );
+      return `${d.properties.COUNTYNAME} ${foundData ? foundData.count : 0}人`;
+    });
   
 
   svg.append("g");
